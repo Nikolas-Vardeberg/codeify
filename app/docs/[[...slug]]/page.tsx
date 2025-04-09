@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { source } from '@/common/lib/source';
 import { getMDXComponents } from '@/common/components/mdx-components copy';
+import { Rate } from '@/common/components/rate';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -30,6 +31,15 @@ export default async function Page(props: {
           })}
         />
       </DocsBody>
+
+      <Rate
+        onRateAction={async (url, feedback) => {
+          'use server';
+ 
+          console.log(feedback, url);
+          //await posthog.capture('on_rate_docs', feedback);
+        }}
+      />
     </DocsPage>
   );
 }
