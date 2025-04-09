@@ -1,4 +1,6 @@
 import React from "react"
+import { HomeLayout } from 'fumadocs-ui/layouts/home';
+import { baseOptions } from "../layout.config";
 
 type Props = {
     children: React.ReactNode
@@ -6,8 +8,6 @@ type Props = {
 
 export default function ClientLayout({ children }: Props) {
   return(
-        <>
-            {children}
-        </>
+    <HomeLayout {...baseOptions}>{children}</HomeLayout>
   )
 }
