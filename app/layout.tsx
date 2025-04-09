@@ -5,16 +5,13 @@ import { ThemeProvider } from "@/common/providers/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { ClerkProvider } from "@clerk/nextjs";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const aeronaut = localFont({
+  src: "./fonts/Aeronaut.woff2",
+  variable: "--font-aeronaut",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,7 +29,7 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang={locale} suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${aeronaut.variable} antialiased`}
         >
           <NextIntlClientProvider>
             <ThemeProvider
