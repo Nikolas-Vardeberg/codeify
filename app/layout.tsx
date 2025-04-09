@@ -7,7 +7,6 @@ import { getLocale } from "next-intl/server";
 import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
 
-
 const aeronaut = localFont({
   src: "./fonts/Aeronaut.woff2",
   variable: "--font-aeronaut",
