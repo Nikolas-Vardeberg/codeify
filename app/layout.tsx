@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/common/providers/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
+import { RootProvider } from 'fumadocs-ui/provider';
 import { getLocale } from "next-intl/server";
 import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
@@ -31,14 +31,9 @@ export default async function RootLayout({
           className={`${aeronaut.variable} antialiased`}
         >
           <NextIntlClientProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-              >
+            <RootProvider>
               {children}
-            </ThemeProvider>
+             </RootProvider>
           </NextIntlClientProvider>
         </body>
       </html>
