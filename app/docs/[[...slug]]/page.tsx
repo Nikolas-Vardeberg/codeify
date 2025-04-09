@@ -9,6 +9,9 @@ import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { source } from '@/common/lib/source';
 import { getMDXComponents } from '@/common/components/mdx-components copy';
 import { Rate } from '@/common/components/rate';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { Card } from 'fumadocs-ui/components/card';
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -28,6 +31,12 @@ export default async function Page(props: {
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
+            Card,
+            Step,
+            Steps,
+            File,
+            Folder,
+            Files,
           })}
         />
       </DocsBody>
